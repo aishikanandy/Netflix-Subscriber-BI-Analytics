@@ -1,0 +1,11 @@
+Total Users = COUNTROWS('Netflix user data')
+
+Total Watch Time (Hrs) = SUM('Netflix user data'[Watch Time (Hours)])
+
+Avg Watch Time per User = DIVIDE([Total Watch Time (Hrs)], [Total Users], 0)
+
+Total Revenue = SUM('Netflix user data'[Monthly Revenue])
+
+PM Active Users = CALCULATE([Total Users], DATEADD('Calendar'[Date], -1, MONTH))
+
+MoM User Growth % = DIVIDE([Total Users] - [PM Active Users], [PM Active Users], 0)
